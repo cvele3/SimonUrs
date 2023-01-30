@@ -69,7 +69,7 @@ class Simon
 	public:
 
 	Simon(){
-		
+		this->rect = rand() % 4 + 1;
 	}
 
 	Simon(int rect)
@@ -209,11 +209,11 @@ class Simon
 	}
 };
 
-Simon simonArray[20];
+Simon simonArray[30];
 int turnCPU = 1;
 int turnPlayer = 0;
 int numberOfSimons = 1;
-int correctAnswer[20];
+int correctAnswer[30];
 int error = 0;
 int countAnswer = 0;
 int totalCorrectAnswers = 1;
@@ -231,7 +231,7 @@ int main(void)
 
 	
 	//fill simonArray with random numbers from 1-4
-	for(int i = 0; i < 20; i++){
+	for(int i = 0; i < 30; i++){
 		int randomValue = rand() % 4 + 1;
 		simonArray[i] = Simon(randomValue);
 		correctAnswer[i] = randomValue;
@@ -247,6 +247,13 @@ int main(void)
 			while(1);
 		}
 		else{
+			if(numberOfSimons == 31){
+				display.clrScr();
+				display.setColor(WHITE);
+				display.setFont(BigFont);
+				display.print("YOU WIN", CENTER, 110);
+				while(1);
+			}
 			if(turnCPU == 1){
 				for (int i = 0; i < numberOfSimons; i++)
 				{
@@ -262,7 +269,7 @@ int main(void)
 					countAnswer++;
 					display.setColor(WHITE);
 					display.print("CORRECT", CENTER, 110);
-				}else{
+					}else{
 					error = 1;
 				}
 				_delay_ms(500);
