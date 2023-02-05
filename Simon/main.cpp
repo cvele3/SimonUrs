@@ -407,6 +407,8 @@ int main(void)
 			if(countAnswer == numberOfSimons){
 				turnPlayer = 0;
 				turnCPU = 1;
+				
+				// Increment length of next color sequence
 				numberOfSimons++;
 				countAnswer = 0;
 			}
