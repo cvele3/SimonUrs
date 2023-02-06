@@ -405,6 +405,8 @@ int main(void)
 			
 			// Check if player has memorized whole color sequence
 			if(countAnswer == numberOfSimons){
+				
+				// Set CPUs turn flag to show next color sequence
 				turnPlayer = 0;
 				turnCPU = 1;
 				
